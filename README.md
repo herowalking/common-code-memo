@@ -1,4 +1,6 @@
-# javascript-code-memo
-Common javascript code handwritten memo
+# Common-code-memo
+Common code handwritten memo
 
-The most concise and practical version of commonly used JavaScript code for interviews and engineering.
+The most concise and practical version of commonly used Javacript, Python, Java code for interviews and engineering.
+
+Some useful code templates help you write more elegant code.
