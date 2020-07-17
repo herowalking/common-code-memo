@@ -52,5 +52,11 @@ def recursion(level, param1, param2, ...):
 
     # revert the current level states
 
+    # TreeNode
+    class TreeNode:
+      def __init__(self, val):
+        self.val = val
+        self.left, self.right = None, None
+
 
   
