@@ -65,7 +65,7 @@ def dfs(node, visited):
   if node in visited: # terminator
     # already visited
     return
-  
+
   visited.add(node)
 
   # process current node
@@ -79,7 +79,7 @@ def DFS(self, tree):
 
   if tree.root is None:
     return []
-  
+
   visited, stack = [], [tree.root]
 
   while stack:
@@ -89,8 +89,8 @@ def DFS(self, tree):
     process(node)
     nodes = generate_related_nodes(node)
     stack.push(nodes)
-  
-  # other processing work 
+
+  # other processing work
   ...
 
 # BFS 代码
@@ -107,8 +107,8 @@ def BFS(graph, start, end):
     process(node)
     nodes = generate_related_nodes(node)
     queue.push(nodes)
-  
-  # other processing work 
+
+  # other processing work
   ...
 
 # 二分查找
@@ -116,27 +116,10 @@ left, right = 0, len(array) - 1
 while (left <= right):
   mid = (left + right) / 2
   if array[mid] == target:
-    # find the target!! 
+    # find the target!!
     break or return result
   elif array[mid] < target:
     left = mid + 1
   else:
     right = mid - 1
-  
-
-
-
-  
-
-    # 二分查找代码模板
-    left, right = 0, len(array) - 1
-    while left < right:
-      mid = (left + right) / 2
-      if (array[mid] == target):
-        # find the target!!
-        break or return result
-      elif array[mid] < target:
-        left = mid + 1
-      else:
-        right = right = mid -1
 
