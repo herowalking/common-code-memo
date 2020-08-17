@@ -58,13 +58,13 @@ const quickSort = (nums, left, right) => {
 }
 
 const partition = (nums, left, right) => {
-  let privot = left, index = left + 1;
+  let pivot = left, index = left + 1;
   for (let i = index; i <= right; i++) {
-    if (nums[i] < nums[privot]) {
+    if (nums[i] < nums[pivot]) {
       [nums[i], nums[index]] = [nums[index], nums[i]];
       index++;
     }
   }
-  [nums[privot], nums[index - 1]] = [nums[index - 1], nums[privot]];
+  [nums[pivot], nums[index - 1]] = [nums[index - 1], nums[pivot]];
   return index - 1;
 }
