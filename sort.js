@@ -46,3 +46,25 @@ function insertionSort(arr) {
   }
   return arr;
 }
+
+// quick sort
+const quickSort = (nums, left, right) => {
+  if (nums.length <= 1) return nums;
+  if (left < right) {
+    index = partition(nums, left, right);
+    quickSort(nums, left, index - 1);
+    quickSort(nums, index + 1, right);
+  }
+}
+
+const partition = (nums, left, right) => {
+  let privot = left, index = left + 1;
+  for (let i = index; i <= right; i++) {
+    if (nums[i] < nums[privot]) {
+      [nums[i], nums[index]] = [nums[index], nums[i]];
+      index++;
+    }
+  }
+  [nums[privot], nums[index - 1]] = [nums[index - 1], nums[privot]];
+  return index - 1;
+}
