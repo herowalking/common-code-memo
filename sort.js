@@ -47,7 +47,7 @@ function insertionSort(arr) {
   return arr;
 }
 
-// quick sort
+// quickSort
 const quickSort = (nums, left, right) => {
   if (nums.length <= 1) return nums;
   if (left < right) {
@@ -69,7 +69,7 @@ const partition = (nums, left, right) => {
   return index - 1;
 }
 
-// merge sort
+// mergeSort
 const mergeSort = (nums) => {
   if (nums.length <= 1) return nums;
   let mid = (Math.floor(nums.length / 2)), 
@@ -78,7 +78,7 @@ const mergeSort = (nums) => {
   return merge(mergeSort(left), mergeSort(right));
 } 
 
-const merge(left, right) => {
+const merge = (left, right) => {
   let result = [];
   while (left.length && right.length) {
     result.push(left[0] <= right[0] ? left.shift() : right.shift())
@@ -86,4 +86,42 @@ const merge(left, right) => {
   while (left.length) result.push(left.shift());
   while (right.length) result.push(right.shift());
   return result;
+}
+
+// heapSort
+function heapSort(arr) {
+  if (arr.length === 0) return;
+  let len = arr.length;
+
+  // 建堆
+  for (let i = Math.floor(len / 2) - 1; i >= 0 i--) {
+    heapify(arr, len, i);
+  }
+
+  // 排序
+  for (let i = len - 1; i >= 0; i--) {
+    // 堆顶元素与最后一个互换
+    [arr[0], arr[i]] = [arr[i], arr[0]];
+    // 对0 - i的数据建堆
+    heapify(arr, i, 0);
+  }
+}
+
+function heapify(arr, len, i) {
+  let left = i * 2 + 1;
+  let right = i * 2 + 2;
+  let largest = i;
+
+  if (left < len && arr[left] > arr[largest]) {
+    largest = left;
+  }
+
+  if (right < len && arr[right] > arr[largest]) {
+    largest = right;
+  }
+
+  if (largest !== i) {
+    [arr[i], arr[largest]] = [arr[largest], arr[i]];
+    heapify(arr, len, largest);
+  }
 }
