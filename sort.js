@@ -94,7 +94,7 @@ function heapSort(arr) {
   let len = arr.length;
 
   // 建堆
-  for (let i = Math.floor(len / 2) - 1; i >= 0 i--) {
+  for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
     heapify(arr, len, i);
   }
 
