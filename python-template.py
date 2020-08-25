@@ -123,3 +123,34 @@ while (left <= right):
   else:
     right = mid - 1
 
+
+# convert-sorted-list-to-binary-search-tree
+def sortedListToBST(self, head: ListNode) -> TreeNode:
+  if not head: return
+  if not head.next: return TreeNode(head.val)
+  
+  slow, fast = head, head.next.next
+  while fast and fast.next:
+    fast = fast.next.next
+    slow = slow.next
+  
+  mid, slow.next = slow.next, None
+  root = TreeNode(mid.val)
+  root.left, root.right = self.sortedListToBST(head), self.sortedListToBST(mid.next)
+  return root
+
+def findSubsequences1(self, nums: List[int]) -> List[List[int]]:
+  ans, seq = set(), []
+  def dfs(i): 
+      if len(seq) >= 2:
+          ans.add(tuple(seq))
+      for j in range(i, len(nums)):
+          if len(seq) == 0 or nums[j] >= seq[-1]:
+              seq.append(nums[j])
+              dfs(j+1)
+              seq.pop()
+  dfs(0)         
+  return list(ans)
+
+
+
