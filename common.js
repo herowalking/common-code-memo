@@ -1,17 +1,19 @@
 // deepCopy
-function deepCopy(p, c) {
-  c = c || {};
-  for (var i in p) {
-    if (p.hasOwnProperty(i)) {
-      if (typeof p[i] === 'object') {
-        c[i] = Array.isArray(p[i]) ? [] : {};
-        deepCopy(p[i], c[i]);
-      } else {
-        c[i] = p[i];
-      }
-    }
+function deepClone(obj) {
+  function isObject(o) {
+    return (typeof o === 'object' || typeof o === 'function') && typeof o !== null;
   }
-  return c;
+
+  if (!isObject(obj)) {
+    return new Error('Not object');
+  }
+
+  let newObj = Array.isArray() ? [] : {};
+  for (key in obj) {
+    newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key];
+  }
+
+  return newObj;
 }
 
 // 1. 实现一个call函数 
