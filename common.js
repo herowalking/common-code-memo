@@ -8,7 +8,7 @@ function deepClone(obj) {
     return new Error('Not object');
   }
 
-  let newObj = Array.isArray() ? [] : {};
+  let newObj = Array.isArray(obj) ? [] : {};
   for (key in obj) {
     newObj[key] = isObject(obj[key]) ? deepClone(obj[key]) : obj[key];
   }
