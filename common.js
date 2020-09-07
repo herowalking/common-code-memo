@@ -65,3 +65,25 @@ Function.prototype.myBind = function(context) {
   }
 }
 
+// 防抖
+function debounce(f, wait) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      f(...args);
+    }, wait);
+  }
+}
+
+// 节流
+function throttle(f, wait) {
+  let timer;
+  return (...args) => {
+    if (timer) return;
+    timer = setTimeout(() => {
+      f(...args);
+      timer = null;
+    }, wait);
+  }
+}
